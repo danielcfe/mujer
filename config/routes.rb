@@ -10,7 +10,7 @@ W::Application.routes.draw do
   match '/auth/failure', :to => 'sessions#failure'
   
   # Users Routes 
-  resources :users , :except => [:index] do
+  resources :users , :except => [:index,:destroy,:update] do
       get 'settings', :on => :collection
       get 'posts' => "posts#index", :on => :member
   end
