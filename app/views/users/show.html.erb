@@ -1,6 +1,8 @@
 <h1> <%= @user.name %> </h1>
 
-<div id="last_post">
-	<h3>Last Recipes form <%= @user.name %> </h3>
-	<%= render @user.posts %>
-</div>
+<% if @user.posts.nil? %>
+	<div id="last_post">
+		<h3>Last Recipes form <%= @user.name %> </h3>
+		<%= render @user.posts %>
+	</div>
+<% end %>

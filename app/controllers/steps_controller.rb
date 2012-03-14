@@ -23,9 +23,30 @@ class StepsController < ApplicationController
   end
 
   def edit
+    @post = Post.find(params[:post_id])
+    @step = @post.steps.find(params[:id])
+    respond_to do |format|
+      if @step
+        format.html 
+        format.js { render 'edit'}
+      else  
+        format.js {render :js=> "alert('Error saving Step, maybe you left some field on blank')"}
+      end
+    end
   end
 
   def update
+    @post = Post.find(params[:post_id])
+    @step = @post.steps.find(params[:id])
+    respond_to do |format|
+      if @step.update_attributes(params[:step])
+        flash[:notice]="Success a new step has been created."
+        format.html 
+        format.js { render 'create' }
+      else  
+        format.js {render :js=> "alert('Error saving Step, maybe you left some field on blank')"}
+      end
+    end
   end
 
   def destroy

@@ -1,11 +1,12 @@
-<li class="step">
+<li class="step" id="step-<%= step.id %>">
 	<h3> <%= step.title %> </h3>
 	<div class="step_content vm1">
 		<%= step.content %>
 	</div>
-	<% if session[:user_id] %>
+	<% if session[:user_id]==step.post.user_id %>
 	<div class="actions">
 		<%= link_to 'Delete', [step.post, step] ,confirm: 'Are you sure?', method: :delete,remote: true %>
+		<%= link_to 'Edit', edit_post_step_path(step.post,step) ,method: :get, remote: true %>
 	</div>
 	<% end %>
 </li>

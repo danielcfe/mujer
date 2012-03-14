@@ -32,7 +32,7 @@ class UsersController < ApplicationController
     if session[:user_id] 
       authorize
     end
-    @user= User.find_by_username(params[:id])
+    @user= User.find_by_username(params[:username])
     respond_to do |format|
       format.html #render show.html.erb
       format.json { render json:@user }

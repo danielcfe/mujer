@@ -24,5 +24,10 @@ class ApplicationController < ActionController::Base
   def is_login
     return session[:user_id]
   end
+
+  private
+  def ownership (post)
+    return (post.user_id==session[:user_id]) ? true : false
+  end
   
 end
