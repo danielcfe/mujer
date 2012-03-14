@@ -7,7 +7,7 @@ development:
   ##adapter: sqlite3
   adapter: mysql2
   ##database: db/development.sqlite3
-  database: tudocumento_dev
+  database: wuoman_developement
   username: root
   password: sam737446
   host: localhost
